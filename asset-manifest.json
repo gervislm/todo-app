@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/TaskManager/static/css/main.d63667da.css",
-    "main.js": "/TaskManager/static/js/main.1d67321c.js",
-    "index.html": "/TaskManager/index.html",
-    "static/media/delete.svg": "/TaskManager/static/media/delete.7018c4465589031bd51c8efbe21df9ca.svg",
-    "static/media/check.svg": "/TaskManager/static/media/check.e9a948bba52a34123d2ed7aeda0ea495.svg",
-    "main.d63667da.css.map": "/TaskManager/static/css/main.d63667da.css.map",
-    "main.1d67321c.js.map": "/TaskManager/static/js/main.1d67321c.js.map"
+    "main.css": "/todo-app/static/css/main.d63667da.css",
+    "main.js": "/todo-app/static/js/main.82c1571d.js",
+    "index.html": "/todo-app/index.html",
+    "static/media/delete.svg": "/todo-app/static/media/delete.7018c4465589031bd51c8efbe21df9ca.svg",
+    "static/media/check.svg": "/todo-app/static/media/check.e9a948bba52a34123d2ed7aeda0ea495.svg",
+    "main.d63667da.css.map": "/todo-app/static/css/main.d63667da.css.map",
+    "main.82c1571d.js.map": "/todo-app/static/js/main.82c1571d.js.map"
   },
   "entrypoints": [
     "static/css/main.d63667da.css",
-    "static/js/main.1d67321c.js"
+    "static/js/main.82c1571d.js"
   ]
 }
