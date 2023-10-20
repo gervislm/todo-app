@@ -32,7 +32,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://gervislm.github.io/TaskManager",
+  "homepage": "https://gervislm.github.io/todo-app",
   "devDependencies": {
     "gh-pages": "^5.0.0"
   }
