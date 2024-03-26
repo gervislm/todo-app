@@ -1,9 +1,12 @@
-import React from 'react';
-import { TodoItem } from '../TodoItem';
-import './TodoList.css';
+import React from "react";
+import "./TodoList.css";
 
 function TodoList({ children }) {
-  return <ul className='TodoList'>{children}</ul>;
+  return (
+    <main>
+      <ul className="TodoList">{children}</ul>
+    </main>
+  );
 }
 
 export { TodoList };

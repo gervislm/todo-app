@@ -1,16 +1,14 @@
-import React from 'react';
-import { useLocalStorage } from './useLocalStorage';
+import React from "react";
+import { useLocalStorage } from "./useLocalStorage";
 
-const TodoContext = React.createContext();
-
-function TodoProvider({ children }) {
+function useTodos() {
   const {
     item: todos,
     saveItem: saveTodos,
     loading,
     error,
-  } = useLocalStorage('TODO_BACKUP', []);
-  const [searchValue, setSearchValue] = React.useState('');
+  } = useLocalStorage("TODO_BACKUP", []);
+  const [searchValue, setSearchValue] = React.useState("");
   const [openModal, setOpenModal] = React.useState(false);
 
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
@@ -44,25 +42,19 @@ function TodoProvider({ children }) {
     saveTodos(newTodos);
   };
 
-  return (
-    <TodoContext.Provider
-      value={{
-        completedTodos,
-        totalTodos,
-        searchValue,
-        setSearchValue,
-        loading,
-        error,
-        searchedTodos,
-        completeTodo,
-        addTodo,
-        deleteTodo,
-        openModal,
-        setOpenModal,
-      }}
-    >
-      {children}
-    </TodoContext.Provider>
-  );
+  return {
+    completedTodos,
+    totalTodos,
+    searchValue,
+    setSearchValue,
+    loading,
+    error,
+    searchedTodos,
+    completeTodo,
+    addTodo,
+    deleteTodo,
+    openModal,
+    setOpenModal,
+  };
 }
-export { TodoContext, TodoProvider };
+export { useTodos };
