@@ -21,11 +21,11 @@ function App() {
     deleteTodo,
     openModal,
     setOpenModal,
-    addTodo,
     completedTodos,
     totalTodos,
     searchValue,
     setSearchValue,
+    addTodo,
   } = useTodos();
 
   return (
@@ -67,7 +67,7 @@ function App() {
 
       {openModal && (
         <Modal>
-          <TodoForm addTodo={addTodo} setOpenModal={addTodo} />
+          <TodoForm addTodo={addTodo} setOpenModal={setOpenModal} />
         </Modal>
       )}
     </>
