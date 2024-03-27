@@ -1,9 +1,18 @@
-main {
+section {
   min-height: 68vh;
 }
 
-.TodoList {
+.TodoList-container ul {
   margin: 0;
-  padding: 0 0 56px 0;
+  padding-bottom: 50px;
   list-style: none;
+}
+
+@media screen and (max-width: 768px) {
+  section {
+    min-height: 60vh;
+  }
+  .TodoList-container ul {
+    padding: 0 0 20px 0;
+  }
 }

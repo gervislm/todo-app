@@ -32,31 +32,48 @@ function App() {
   return (
     <>
       <TodoHeader>
-        <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
-        <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+        <TodoCounter
+          totalTodos={totalTodos}
+          completedTodos={completedTodos}
+          loading={loading}
+        />
+        <TodoSearch
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          loading={loading}
+        />
       </TodoHeader>
 
-      <TodoList>
-        {loading && (
-          <>
-            <LoadingTodos />
-            <LoadingTodos />
-            <LoadingTodos />
-          </>
-        )}
-        {error && <ErrorTodos />}
-        {!loading && searchedTodos.length === 0 && <EmptyTodos />}
-
-        {searchedTodos.map((todo) => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
-          />
-        ))}
-      </TodoList>
+      <main className="MainContent">
+        <TodoList
+          error={error}
+          loading={loading}
+          totalTodos={totalTodos}
+          searchText={searchValue}
+          searchedTodos={searchedTodos}
+          onError={() => <ErrorTodos />}
+          onLoading={() => (
+            <>
+              <LoadingTodos />
+              <LoadingTodos />
+              <LoadingTodos />
+            </>
+          )}
+          onEmptyTodos={() => <EmptyTodos />}
+          onEmptySearchResult={(searchText) => (
+            <p>The TODO {searchText} does not exist</p>
+          )}
+          render={(todo) => (
+            <TodoItem
+              key={todo.text}
+              text={todo.text}
+              completed={todo.completed}
+              onComplete={() => completeTodo(todo.text)}
+              onDelete={() => deleteTodo(todo.text)}
+            />
+          )}
+        />
+      </main>
 
       <Footer />
 

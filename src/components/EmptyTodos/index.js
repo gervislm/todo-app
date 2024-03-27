@@ -1,8 +1,6 @@
-import React from 'react';
-import './EmptyTodos.css';
+import React from "react";
+import "./EmptyTodos.css";
 
-function EmptyTodos() {
-  return <p>Create a todo..</p>;
-}
-
-export { EmptyTodos };
+export const EmptyTodos = () => {
+  return <p>Create your first todo...</p>;
+};

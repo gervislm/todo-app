@@ -1,6 +1,7 @@
 .TodoCounter {
-  font-size: 24px;
+  font-size: 1.5rem;
   text-align: center;
+  text-shadow: 2px 2px 5px rgb(150, 150, 150);
   margin: 0;
   padding: 48px;
   font-weight: normal;
@@ -8,4 +9,8 @@
 
 .TodoCounter span {
   font-weight: bold;
+}
+
+.TodoCounter-loading {
+  opacity: 30%;
 }

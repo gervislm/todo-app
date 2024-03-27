@@ -1,9 +1,9 @@
 import React from "react";
 import "./TodoCounter.css";
 
-function TodoCounter({ completedTodos, totalTodos }) {
+function TodoCounter({ completedTodos, totalTodos, loading }) {
   return (
-    <h1 className="TodoCounter">
+    <h1 className={`TodoCounter ${!!loading && "TodoCounter-loading"}`}>
       You have completed
       <span> {completedTodos} </span>
       of
