@@ -25,6 +25,7 @@ function TodoForm({ addTodo, setOpenModal }) {
         placeholder="Take Dobby for a walk"
         value={newTodoValue}
         onChange={onChange}
+        autoFocus
       />
       <div className="TodoForm-buttonContainer">
         <button

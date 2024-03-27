@@ -11,6 +11,7 @@ import { EmptyTodos } from "../components/EmptyTodos";
 import { NewTodoButton } from "../components/NewTodoButton";
 import { TodoForm } from "../components/TodoForm";
 import { Modal } from "../components/Modal";
+import { Footer } from "../components/Footer";
 
 function App() {
   const {
@@ -41,12 +42,6 @@ function App() {
             <LoadingTodos />
             <LoadingTodos />
             <LoadingTodos />
-            <LoadingTodos />
-            <LoadingTodos />
-            <LoadingTodos />
-            <LoadingTodos />
-            <LoadingTodos />
-            <LoadingTodos />
           </>
         )}
         {error && <ErrorTodos />}
@@ -62,6 +57,8 @@ function App() {
           />
         ))}
       </TodoList>
+
+      <Footer />
 
       <NewTodoButton setOpenModal={setOpenModal} />
 
