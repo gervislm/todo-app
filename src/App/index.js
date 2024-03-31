@@ -12,6 +12,7 @@ import { NewTodoButton } from "../components/NewTodoButton";
 import { TodoForm } from "../components/TodoForm";
 import { Modal } from "../components/Modal";
 import { Footer } from "../components/Footer";
+import { StorageAlert } from "../components/StorageAlert";
 
 function App() {
   const {
@@ -27,21 +28,14 @@ function App() {
     searchValue,
     setSearchValue,
     addTodo,
+    syncTodos,
   } = useTodos();
 
   return (
     <>
-      <TodoHeader>
-        <TodoCounter
-          totalTodos={totalTodos}
-          completedTodos={completedTodos}
-          loading={loading}
-        />
-        <TodoSearch
-          searchValue={searchValue}
-          setSearchValue={setSearchValue}
-          loading={loading}
-        />
+      <TodoHeader loading={loading}>
+        <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
+        <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
       </TodoHeader>
 
       <main className="MainContent">
@@ -75,6 +69,8 @@ function App() {
         />
       </main>
 
+      <StorageAlert synchronize={syncTodos} />
+
       <Footer />
 
       <NewTodoButton setOpenModal={setOpenModal} />
@@ -88,4 +84,4 @@ function App() {
   );
 }
 
-export default App;
+export { App };

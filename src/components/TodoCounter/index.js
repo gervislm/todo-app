@@ -3,11 +3,11 @@ import "./TodoCounter.css";
 
 function TodoCounter({ completedTodos, totalTodos, loading }) {
   return (
-    <h1 className={`TodoCounter ${!!loading && "TodoCounter-loading"}`}>
+    <h1 className={`TodoCounter ${!!loading && "TodoCounter--loading"}`}>
       You have completed
-      <span> {completedTodos} </span>
+      <strong> {completedTodos} </strong>
       of
-      <span> {totalTodos} </span> tasks to do!
+      <strong> {totalTodos} </strong> tasks to do!
     </h1>
   );
 }

@@ -1,0 +1,56 @@
+.StorageAlert-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #00000080;
+  z-index: 2;
+}
+
+.StorageAlert-container {
+  position: fixed;
+  right: -10px;
+  bottom: -10px;
+  left: -10px;
+  padding: 30px;
+  height: 25vh;
+  background-color: #000000cc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.StorageAlert-container p {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.ReloadContent {
+  border: 1px solid;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px #ffffffb3;
+  margin: 10px 0px;
+  padding: 10px 15px;
+  background-color: #ffffff80;
+  margin-left: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffffffb3;
+  font-weight: 700;
+}
+
+.ReloadContent:hover {
+  color: #ffffff;
+  box-shadow: 2px 2px 5px #ffffff;
+  transition: 0.3s ease;
+}
+
+@media screen and (max-width: 768px) {
+  .StorageAlert-container p {
+    font-size: 1rem;
+  }
+}

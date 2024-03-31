@@ -1,4 +1,7 @@
 .Footer {
+  backdrop-filter: blur(5px);
+  position: sticky;
+  bottom: 0px;
   display: flex;
   flex-direction: row;
   align-items: center;
