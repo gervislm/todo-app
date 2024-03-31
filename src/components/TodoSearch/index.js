@@ -1,16 +1,16 @@
 import React from "react";
 import "./TodoSearch.css";
 
-function TodoSearch({ searchValue, setSearchValue, loading }) {
+function TodoSearch({ searchValue, setSearchValue, loading, totalTodos }) {
   return (
     <input
       className="TodoSearch"
-      placeholder="Search"
+      placeholder={!totalTodos ? "there are no todo" : "Search todo"}
       value={searchValue}
       onChange={(event) => {
         setSearchValue(event.target.value);
       }}
-      disabled={loading}
+      disabled={loading || !totalTodos}
     />
   );
 }

@@ -35,7 +35,11 @@ function App() {
     <>
       <TodoHeader loading={loading}>
         <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
-        <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+        <TodoSearch
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          totalTodos={totalTodos}
+        />
       </TodoHeader>
 
       <main className="MainContent">
