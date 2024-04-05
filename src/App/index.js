@@ -15,21 +15,26 @@ import { Footer } from "../components/Footer";
 import { StorageAlert } from "../components/StorageAlert";
 
 function App() {
+  const { states, stateUpdaters } = useTodos();
+
   const {
-    loading,
     error,
+    loading,
     searchedTodos,
-    completeTodo,
-    deleteTodo,
-    openModal,
-    setOpenModal,
-    completedTodos,
     totalTodos,
+    completedTodos,
+    openModal,
     searchValue,
+  } = states;
+
+  const {
+    completeTodo,
     setSearchValue,
     addTodo,
+    deleteTodo,
+    setOpenModal,
     syncTodos,
-  } = useTodos();
+  } = stateUpdaters;
 
   return (
     <>

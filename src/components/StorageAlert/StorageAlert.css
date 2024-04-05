@@ -44,8 +44,8 @@
 }
 
 .ReloadContent:hover {
-  color: #ffffff;
-  box-shadow: 2px 2px 5px #ffffff;
+  color: #00ff00;
+  box-shadow: 2px 2px 5px #00ff0099;
   transition: 0.3s ease;
 }
 
