@@ -8,63 +8,100 @@ function useTodos() {
     syncItem: syncTodos,
     loading,
     error,
-  } = useLocalStorage("TODO_BACKUP", []);
+  } = useLocalStorage("TODO_BACKUP_V1", []);
   const [searchValue, setSearchValue] = React.useState("");
-  const [openModal, setOpenModal] = React.useState(false);
 
-  const completedTodos = todos.filter((todo) => !!todo.completed).length;
+  const completedTodos = React.useMemo(
+    () => todos.filter((todo) => !!todo.completed).length,
+    [todos]
+  );
   const totalTodos = todos.length;
 
-  const searchedTodos = todos.filter((todo) => {
-    const todoText = todo.text.toLowerCase();
-    const searchedText = searchValue.toLowerCase();
-    return todoText.includes(searchedText);
-  });
+  const searchedTodos = React.useMemo(
+    () =>
+      todos.filter((todo) =>
+        todo.text.toLowerCase().includes(searchValue.toLowerCase())
+      ),
+    [todos, searchValue]
+  );
 
-  const completeTodo = (text) => {
-    const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
-    newTodos[todoIndex].completed = true;
-    saveTodos(newTodos);
-  };
-  const deleteTodo = (text) => {
-    const newTodos = [...todos];
-    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
-    newTodos.splice(todoIndex, 1);
-    saveTodos(newTodos);
-  };
+  const addTodo = React.useCallback(
+    (text) => {
+      const id = newTodoId(todos);
+      const newTodos = [...todos, { text, completed: false, id }];
+      saveTodos(newTodos);
+    },
+    [todos, saveTodos]
+  );
 
-  const addTodo = (text) => {
-    const newTodos = [...todos];
-    newTodos.push({
-      text,
-      completed: false,
-    });
-    saveTodos(newTodos);
-  };
+  const getTodo = React.useCallback(
+    (id) => todos.find((todo) => todo.id === id),
+    [todos]
+  );
 
-  const states = {
+  const toggleTodo = React.useCallback(
+    (id) => {
+      const todoIndex = todos.findIndex((todo) => todo.id === id);
+      if (todoIndex !== -1) {
+        const newTodos = [...todos];
+        newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
+        saveTodos(newTodos);
+      }
+    },
+    [todos, saveTodos]
+  );
+
+  const editTodo = React.useCallback(
+    (id, newText) => {
+      const todoIndex = todos.findIndex((todo) => todo.id === id);
+      if (todoIndex !== -1) {
+        const newTodos = [...todos];
+        newTodos[todoIndex].text = newText;
+        saveTodos(newTodos);
+      }
+    },
+    [todos, saveTodos]
+  );
+
+  const deleteTodo = React.useCallback(
+    (id) => {
+      const newTodos = todos.filter((todo) => todo.id !== id);
+      saveTodos(newTodos);
+    },
+    [todos, saveTodos]
+  );
+
+  const state = {
     error,
     loading,
     searchedTodos,
     totalTodos,
     completedTodos,
-    openModal,
     searchValue,
+    getTodo,
   };
 
-  const stateUpdaters = {
-    completeTodo,
+  const actions = {
+    syncTodos,
     setSearchValue,
     addTodo,
+    editTodo,
+    toggleTodo,
     deleteTodo,
-    setOpenModal,
-    syncTodos,
   };
 
   return {
-    states,
-    stateUpdaters,
+    state,
+    actions,
   };
+}
+
+function newTodoId(todoList) {
+  if (todoList.length === 0) {
+    return 1;
+  } else {
+    const maxId = Math.max(...todoList.map((todo) => todo.id));
+    return maxId + 1;
+  }
 }
 export { useTodos };

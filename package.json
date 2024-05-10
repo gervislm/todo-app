@@ -1,10 +1,11 @@
 {
-  "name": "platzi-intro-react-base",
+  "name": "todo-app",
   "version": "0.1.0",
   "dependencies": {
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.10.1",
+    "react-router-dom": "^6.23.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },

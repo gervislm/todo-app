@@ -1,10 +1,12 @@
-import { ReactComponent as CheckSVG } from './icons/check.svg';
-import { ReactComponent as DeleteSVG } from './icons/delete.svg';
-import './TodoIcon.css';
+import { ReactComponent as CheckSVG } from "./icons/check.svg";
+import { ReactComponent as EditSVG } from "./icons/edit.svg";
+import { ReactComponent as DeleteSVG } from "./icons/delete.svg";
+import "./TodoIcon.css";
 
 const iconTypes = {
-  check: (color) => <CheckSVG className='Icon-svg' fill={color} />,
-  delete: (color) => <DeleteSVG className='Icon-svg' fill={color} />,
+  check: (color) => <CheckSVG className="Icon-svg" fill={color} />,
+  edit: (color) => <EditSVG className="Icon-svg" fill={color} />,
+  delete: (color) => <DeleteSVG className="Icon-svg" fill={color} />,
 };
 
 function TodoIcon({ type, color, onClick }) {

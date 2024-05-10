@@ -1,95 +1,20 @@
 import React from "react";
-import { useTodos } from "./useTodos";
-import { TodoHeader } from "../components/TodoHeader";
-import { TodoCounter } from "../components/TodoCounter";
-import { TodoSearch } from "../components/TodoSearch";
-import { TodoList } from "../components/TodoList";
-import { TodoItem } from "../components/TodoItem";
-import { LoadingTodos } from "../components/LoadingTodos";
-import { ErrorTodos } from "../components/ErrorTodos";
-import { EmptyTodos } from "../components/EmptyTodos";
-import { NewTodoButton } from "../components/NewTodoButton";
-import { TodoForm } from "../components/TodoForm";
-import { Modal } from "../components/Modal";
-import { Footer } from "../components/Footer";
-import { StorageAlert } from "../components/StorageAlert";
+import { HashRouter, Route, Routes } from "react-router-dom";
+import { HomePage } from "../routes/HomePage";
+import { EditTodoPage } from "../routes/EditTodoPage";
+import { NewTodoPage } from "../routes/NewTodoPage";
+import { NotFound } from "../routes/NotFoundPage";
 
 function App() {
-  const { states, stateUpdaters } = useTodos();
-
-  const {
-    error,
-    loading,
-    searchedTodos,
-    totalTodos,
-    completedTodos,
-    openModal,
-    searchValue,
-  } = states;
-
-  const {
-    completeTodo,
-    setSearchValue,
-    addTodo,
-    deleteTodo,
-    setOpenModal,
-    syncTodos,
-  } = stateUpdaters;
-
   return (
-    <>
-      <TodoHeader loading={loading}>
-        <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
-        <TodoSearch
-          searchValue={searchValue}
-          setSearchValue={setSearchValue}
-          totalTodos={totalTodos}
-        />
-      </TodoHeader>
-
-      <main className="MainContent">
-        <TodoList
-          error={error}
-          loading={loading}
-          totalTodos={totalTodos}
-          searchText={searchValue}
-          searchedTodos={searchedTodos}
-          onError={() => <ErrorTodos />}
-          onLoading={() => (
-            <>
-              <LoadingTodos />
-              <LoadingTodos />
-              <LoadingTodos />
-            </>
-          )}
-          onEmptyTodos={() => <EmptyTodos />}
-          onEmptySearchResult={(searchText) => (
-            <p>The TODO {searchText} does not exist</p>
-          )}
-          render={(todo) => (
-            <TodoItem
-              key={todo.text}
-              text={todo.text}
-              completed={todo.completed}
-              onComplete={() => completeTodo(todo.text)}
-              onDelete={() => deleteTodo(todo.text)}
-            />
-          )}
-        />
-      </main>
-
-      <StorageAlert synchronize={syncTodos} />
-
-      <Footer />
-
-      <NewTodoButton setOpenModal={setOpenModal} />
-
-      {openModal && (
-        <Modal>
-          <TodoForm addTodo={addTodo} setOpenModal={setOpenModal} />
-        </Modal>
-      )}
-    </>
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/new" element={<NewTodoPage />} />
+        <Route path="/edit/:id" element={<EditTodoPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </HashRouter>
   );
 }
 
