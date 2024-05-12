@@ -2,7 +2,7 @@ import React from "react";
 import { useStorageListener } from "./useStorageListener";
 import "./StorageAlert.css";
 
-function StorageAlert({ synchronize }) {
+export function StorageAlert({ synchronize }) {
   const { show, toggleShow } = useStorageListener(synchronize);
   if (show) {
     return (
@@ -25,5 +25,3 @@ function StorageAlert({ synchronize }) {
     return null;
   }
 }
-
-export { StorageAlert };

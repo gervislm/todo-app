@@ -1,9 +1,8 @@
-.Footer {
+.Footer-gitHub {
   backdrop-filter: blur(5px);
   position: sticky;
   bottom: 0px;
   display: flex;
-  flex-direction: row;
   align-items: center;
   font-size: 1.5rem;
   width: 100%;
@@ -11,33 +10,43 @@
   padding-left: 10px;
 }
 
-.Footer a {
+.Footer-gitHub p {
+  margin: 0;
+}
+
+.Footer-gitHub a {
+  text-align: center;
   border: 1px solid;
   border-radius: 5px;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  padding: 5px;
-  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 2px #00000080;
+  padding: 5px 10px;
+  background-color: #00000033;
   margin-left: 10px;
   cursor: pointer;
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.5);
+  color: #00000080;
   font-weight: 700;
 }
 
-.Footer a:hover {
-  color: black;
-  box-shadow: 2px 2px 5px black;
+.Footer-gitHub a:hover {
+  color: #000;
+  box-shadow: 2px 2px 5px #000;
   transition: 0.3s ease;
 }
 
 @media screen and (max-width: 768px) {
-  .Footer {
-    flex-direction: column;
-    align-items: start;
-    padding: 0;
+  .Footer-gitHub {
+    height: 80px;
+    padding: 5px;
     font-size: 1rem;
   }
-  p {
-    margin: 10px 0;
+  .Footer-gitHub p {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
+  }
+
+  .Footer-gitHub a {
+    margin: 10px 0 0 0;
   }
 }

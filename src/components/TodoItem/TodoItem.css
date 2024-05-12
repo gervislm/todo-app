@@ -6,16 +6,17 @@
   align-items: center;
   margin-top: 24px;
   border-radius: 5px;
-  box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.15);
+  box-shadow: 0px 5px 50px #20232944;
 }
 
-.TodoItem-p {
+.TodoItem-text {
   margin: 24px 0 24px 24px;
   width: calc(100% - 120px);
   font-size: 18px;
   line-height: 24px;
   font-weight: 400;
 }
-.TodoItem-p--complete {
+
+.TodoItem-text--complete {
   text-decoration: line-through;
 }

@@ -1,4 +1,4 @@
-section {
+.TodoList-container {
   min-height: 68vh;
 }
 
@@ -9,7 +9,7 @@ section {
 }
 
 @media screen and (max-width: 768px) {
-  section {
+  .TodoList-container {
     min-height: 60vh;
   }
   .TodoList-container ul {

@@ -3,20 +3,18 @@ import { EditIcon } from "../TodoIcon/EditIcon";
 import { DeleteIcon } from "../TodoIcon/DeleteIcon";
 import "./TodoItem.css";
 
-function TodoItem(props) {
+export function TodoItem({ completed, text, onComplete, onEdit, onDelete }) {
   return (
     <li className="TodoItem">
-      <CompleteIcon completed={props.completed} onComplete={props.onComplete} />
+      <CompleteIcon completed={completed} onComplete={onComplete} />
 
-      <p className={`TodoItem-p ${props.completed && "TodoItem-p--complete"}`}>
-        {props.text}
+      <p className={`TodoItem-text ${completed && "TodoItem-text--complete"}`}>
+        {text}
       </p>
 
-      <EditIcon onEdit={props.onEdit} />
+      <EditIcon onEdit={onEdit} />
 
-      <DeleteIcon onDelete={props.onDelete} />
+      <DeleteIcon onDelete={onDelete} />
     </li>
   );
 }
-
-export { TodoItem };

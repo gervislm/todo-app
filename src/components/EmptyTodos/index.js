@@ -1,6 +1,12 @@
 import React from "react";
 import "./EmptyTodos.css";
 
-export const EmptyTodos = () => {
-  return <p className="Empty-todo">Create your first todo...</p>;
+export const EmptyTodos = ({ searchText }) => {
+  return (
+    <p className={searchText ? "Searched-todoText" : "Empty-todo"}>
+      {searchText
+        ? `The TODO ${searchText} does not exist`
+        : "Create your first todo..."}
+    </p>
+  );
 };

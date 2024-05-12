@@ -2,15 +2,13 @@ import React from "react";
 import "./TodoForm.css";
 import { useNavigate } from "react-router-dom";
 
-function TodoForm(props) {
+export function TodoForm({ previousTodoText, submitEvent, label, submitText }) {
   const navigate = useNavigate();
-  const [newTodoText, setNewTodoText] = React.useState(
-    props.previousTodoText || ""
-  );
+  const [newTodoText, setNewTodoText] = React.useState(previousTodoText || "");
 
   const onSubmit = (event) => {
     event.preventDefault();
-    props.submitEvent(newTodoText);
+    submitEvent(newTodoText);
     navigate("/");
   };
 
@@ -24,7 +22,7 @@ function TodoForm(props) {
 
   return (
     <form onSubmit={onSubmit}>
-      <label>{props.label}</label>
+      <label>{label}</label>
       <textarea
         placeholder="Take Dobby for a walk"
         value={newTodoText}
@@ -40,11 +38,9 @@ function TodoForm(props) {
           Cancel
         </button>
         <button type="submit" className="TodoForm-button TodoForm-button-add">
-          {props.submitText}
+          {submitText}
         </button>
       </div>
     </form>
   );
 }
-
-export { TodoForm };

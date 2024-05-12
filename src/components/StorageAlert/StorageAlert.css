@@ -23,7 +23,7 @@
 }
 
 .StorageAlert-container p {
-  color: #ffffff;
+  color: #fff;
   font-size: 1.5rem;
   margin-top: 0;
   margin-bottom: 15px;
@@ -44,7 +44,7 @@
 }
 
 .ReloadContent:hover {
-  color: #00ff00;
+  color: #0f0;
   box-shadow: 2px 2px 5px #00ff0099;
   transition: 0.3s ease;
 }

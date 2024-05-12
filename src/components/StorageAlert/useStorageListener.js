@@ -1,6 +1,6 @@
 import React from "react";
 
-function useStorageListener(synchronize) {
+export function useStorageListener(synchronize) {
   const [StorageChange, setStorageChange] = React.useState(false);
 
   window.addEventListener("storage", (change) => {
@@ -16,5 +16,3 @@ function useStorageListener(synchronize) {
 
   return { show: StorageChange, toggleShow };
 }
-
-export { useStorageListener };
