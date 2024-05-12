@@ -1,18 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./TodoSearch.css";
 
-function TodoSearch({ searchValue, setSearchValue, loading, totalTodos }) {
+export function TodoSearch({
+  searchValue,
+  setSearchValue,
+  loading,
+  totalTodos,
+  params,
+  setParams,
+}) {
+  const onSearchValueChange = (event) => {
+    setSearchValue(event.target.value);
+
+    let params = {
+      search: event.target.value,
+    };
+    setParams(params);
+  };
+
+  useEffect(() => {
+    const search = params.get("search") ?? "";
+    setSearchValue(search);
+  }, [setSearchValue, params]);
+
   return (
     <input
       className="TodoSearch"
       placeholder={!totalTodos ? "there are no todo" : "Search todo"}
       value={searchValue}
-      onChange={(event) => {
-        setSearchValue(event.target.value);
-      }}
+      onChange={onSearchValueChange}
       disabled={loading || !totalTodos}
     />
   );
 }
-
-export { TodoSearch };

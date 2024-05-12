@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useTodos } from "../../App/useTodos";
 import { TodoHeader } from "../../components/TodoHeader";
 import { TodoCounter } from "../../components/TodoCounter";
@@ -15,6 +15,7 @@ import { StorageAlert } from "../../components/StorageAlert";
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const [params, setParams] = useSearchParams();
   const { state, actions } = useTodos();
 
   const {
@@ -36,6 +37,8 @@ const HomePage = () => {
           searchValue={searchValue}
           setSearchValue={setSearchValue}
           totalTodos={totalTodos}
+          params={params}
+          setParams={setParams}
         />
       </TodoHeader>
 
